@@ -1,0 +1,45 @@
+/* Cascading Styles Sheet for Travel Planner Application */
+
+body {
+    background-color: #FAFAD2;
+    font-family: arial, sans-serif;
+}
+
+#page_layout { 
+    width: 800px;
+    text-align: center;
+}
+
+#form_layout { 
+    display: inline-block; 
+}
+
+#form_entries { 
+    text-align: left; 
+}
+
+#username_entry, #password_entry { 
+    width: 200px; 
+    padding: 2px 2px 2px 4px;
+}
+
+#controls { 
+    float: left; 
+}
+
+#list_form_entries { 
+    float: left; 
+    margin-left: 50px; 
+    text-align: left; 
+}
+
+#name_entry { 
+    width: 200px; 
+    padding: 2px 2px 2px 4px;
+}
+
+#list_selection { 
+    width: 206px; 
+    height: 23px; 
+    padding: 2px 2px 2px 4px;
+}

@@ -1,0 +1,11 @@
+com\travelplanner\view\FavoriteListServlet.class
+com\travelplanner\model\domain\TravelPlannerAppUser.class
+com\travelplanner\model\domain\FavoriteList.class
+com\travelplanner\model\domain\UserInformation.class
+launch\Main.class
+com\travelplanner\controller\FavoriteListController.class
+com\travelplanner\view\HomeServlet.class
+com\travelplanner\view\ErrorServlet.class
+com\travelplanner\model\business\LoginManager.class
+com\travelplanner\controller\LoginController.class
+com\travelplanner\model\business\FavoriteListManager.class
