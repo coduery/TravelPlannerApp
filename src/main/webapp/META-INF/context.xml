@@ -5,8 +5,8 @@
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
     
     <Resource name="jdbc/postgresqlconnector" auth="Container" type="javax.sql.DataSource" maxActive="5" maxIdle="30" maxWait="10000" 
-        username="svdiufdculjrdb" password="2XiPTyo_CX0gVEYeBBoWPb_SCB" driverClassName="org.postgresql.Driver" 
-        url="jdbc:postgresql://ec2-107-21-120-102.compute-1.amazonaws.com:5432/dfhlo3ueqaut0m" />
+        driverClassName="org.postgresql.Driver" 
+        url="jdbc:postgresql://ec2-107-21-120-102.compute-1.amazonaws.com:5432/dfhlo3ueqaut0m?user=svdiufdculjrdb&password=2XiPTyo_CX0gVEYeBBoWPb_SCB&ssl=true" />
         
         
         
