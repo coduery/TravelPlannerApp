@@ -13,7 +13,7 @@
     <display-name>Travel Planner Application</display-name>
     
     <welcome-file-list>
-        <welcome-file>login.html</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
     
     <servlet>
