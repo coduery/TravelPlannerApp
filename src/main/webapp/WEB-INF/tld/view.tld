@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding= "UTF-8"?>
+
+<!-- Travel Planner Application, Tag Library Descriptor for custom functions and tags. -->
+
+<taglib
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee web-jsptaglibrary_2_1.xsd"
+    version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+    <uri>ViewFunctionsAndTags</uri>
+    <function>
+        <name>FormatFavoriteListSummary</name>
+        <function-class>com.travelplanner.view.Welcome</function-class>
+        <function-signature>
+            String formatFavoriteListSummary(com.travelplanner.model.domain.TravelPlannerAppUser, java.util.List)
+        </function-signature>
+    </function>
+    <function>
+        <name>SuccessMessage</name>
+        <function-class>com.travelplanner.view.Success</function-class>
+        <function-signature>String[] successMessage(javax.servlet.http.HttpSession)</function-signature>
+    </function>
+    
+    
+    <tag>
+        <description>CurrentDate</description>
+        <name>current_date</name>
+        <tag-class>com.travelplanner.view.CurrentDate</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <tag>
+        <description>Selection Drop Down List</description>
+        <name>select</name>
+        <tag-class>com.travelplanner.view.Select</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>size</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>select_options</name>
+            <type>java.util.List</type>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+</taglib>

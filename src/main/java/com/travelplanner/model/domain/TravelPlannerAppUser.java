@@ -2,7 +2,7 @@ package com.travelplanner.model.domain;
 
 import java.io.Serializable;
 
-//import java.util.List;
+import java.util.List;
 //import org.apache.log4j.Logger;
 
 /**
@@ -23,21 +23,21 @@ public class TravelPlannerAppUser implements Serializable {
 	private String password;
 	
 	/** Field to store the List of Favorite Lists */
-    //private List<FavoriteList> allFavLists;
+    private List<FavoriteList> allFavLists;
 	
 	/** Field to store the List of Favorite List Names */
 	private String[] allFavListNames;
     
     /** Field to store a List of Travel Plans */
-	//private List<TravelPlan> allTravelPlans;
+	private List<TravelPlan> allTravelPlans;
     
-    /** Field to store the an integer id of travel plan, for use with Hibernate */
+    /** Field to store the an integer id of travel plan user */
     private Integer userId;
     
-    /** Field for establishing a log4j logger. */
-    //private static Logger logger = Logger.getLogger("com.travelplanner");
-	
-	/**
+    /** Field to store the user's information */
+    private UserInformation userInformation;
+
+    /**
 	 * Method for getting TravelPlannerAppUser username.
 	 * @return Method returns TravelPlannerAppUser username.
 	 */
@@ -73,17 +73,17 @@ public class TravelPlannerAppUser implements Serializable {
 	 * Method for getting the List of Favorite Lists.
 	 * @return Method returns a List of Favorite Lists.
 	 */
-	/*public List<FavoriteList> getAllFavLists(){
+	public List<FavoriteList> getAllFavLists(){
 		return allFavLists;
-	}*/
+	}
 	
 	/**
 	 * Method for setting the List of Favorite Lists.
 	 * @param allFavLists List of Favorite Lists is set to incoming allLists parameter.
 	 */
-	/*public void setAllFavLists(List<FavoriteList> allFavLists){
+	public void setAllFavLists(List<FavoriteList> allFavLists){
 		this.allFavLists = allFavLists;
-	} */  
+	}
     
 	/**
 	 * Method for getting the list of Favorite List Names.
@@ -97,33 +97,33 @@ public class TravelPlannerAppUser implements Serializable {
 	 * Method for setting the list of Favorite List Names.
 	 * @param allLists List of Favorite Lists is set to incoming allLists parameter.
 	 */
-	/*public void setAllFavListNames(List<FavoriteList> allLists){
+	public void setAllFavListNames(List<FavoriteList> allLists){
 		int i = 0;
 		allFavListNames = new String[allLists.size()];
 		for(FavoriteList list : allLists){
 			allFavListNames[i] = list.getNameFavList();
 			i++;
 		}
-	}*/
+	}
 	
 	/**
 	 * Method for getting the List of Travel Plans.
 	 * @return Method returns a List of Travel Plans.
 	 */
-	/*public List<TravelPlan> getAllTravelPlans(){
+	public List<TravelPlan> getAllTravelPlans(){
 		return allTravelPlans;
-	}*/
+	}
 	
 	/**
 	 * Method for setting the List of Travel Plans.
 	 * @param allPlans List of Travel Plans is set to incoming allPlans parameter.
 	 */
-	/*public void setAllTravelPlans(List<TravelPlan> allPlans){
+	public void setAllTravelPlans(List<TravelPlan> allPlans){
 		allTravelPlans = allPlans;
-	}  */   
+	}
     
     /**
-     * Method for getting the userId of the travel planner app user for use with Hibernate.
+     * Method for getting the userId of the travel planner app user.
      * @return Returns the userId of the travel planner app user.
      */
     public Integer getUserId(){
@@ -131,11 +131,27 @@ public class TravelPlannerAppUser implements Serializable {
     }
     
     /**
-     * Method for setting the userId of the travel plan for use with Hibernate.
+     * Method for setting the userId of the travel planner app user.
      * @param userId Returns the userId of the travel planner app user.
      */
     public void setUserId(Integer userId){
         this.userId = userId;
+    }
+    
+    /**
+     * Method for getting the userInformation object associated with the user.
+     * @return Returns the user's UserInformation object.
+     */
+    public UserInformation getUserInformation() {
+        return userInformation;
+    }
+
+    /**
+     * Method for setting the UserInformaton object of the travel planner app user.
+     * @param userInformation Incoming parameter to set the user's UserInformation object.
+     */
+    public void setUserInformation(UserInformation userInformation) {
+        this.userInformation = userInformation;
     }
     
 	/**
@@ -147,16 +163,15 @@ public class TravelPlannerAppUser implements Serializable {
 	 * if Object obj is not an instance of the TravelPlannerAppUser class,
 	 * or true if all field values are equal.
 	 */
-	/*@Override public boolean equals(Object obj){
+	@Override public boolean equals(Object obj){
 		if (obj instanceof TravelPlannerAppUser) {
 			TravelPlannerAppUser user = (TravelPlannerAppUser)obj;
 			if (!username.equals(user.getUsername())) return false;
 			if (!password.equals(user.getPassword())) return false;
 			return true;
 		}
-        logger.debug("TravelPlanAppUser::equals - Incoming object is not an instance of the TravelPlanAppUser class.");           
 		return false;
-	}*/
+	}
 	
 	/**
 	 * Method for obtaining the hashcode of TravelPlannerAppUser object field values.

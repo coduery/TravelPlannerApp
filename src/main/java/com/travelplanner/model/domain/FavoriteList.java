@@ -1,9 +1,8 @@
 package com.travelplanner.model.domain;
 
 import java.io.Serializable;
-//import java.util.List;
+import java.util.List;
 import java.util.Comparator;
-//import org.apache.log4j.Logger;
 
 /**Class to define a Favorite List for a Travel Planner Application User.
  * Design Pattern: Value Object - an object that defines field values, 
@@ -22,7 +21,7 @@ public class FavoriteList implements Serializable, Comparator<FavoriteList> {
 	private String favListType;
 	
 	/** Field to store a List of Favorite Items */
-	//private List<FavoriteItem> favList;
+	private List<FavoriteItem> favList;
     
     /** Field to store the user the favorite list is associated with, for use with Hibernate */
     private TravelPlannerAppUser user;
@@ -30,9 +29,6 @@ public class FavoriteList implements Serializable, Comparator<FavoriteList> {
     /** Field to store the an integer id of the favorite list, for use with Hibernate */
     private Integer listId;
 	
-    /** Field for establishing a log4j logger. */
-    //private static Logger logger = Logger.getLogger("com.travelplanner");
-    
 	/**
 	 * Method for getting the name of a Favorite List.
 	 * @return Method returns FavoriteList name.
@@ -69,17 +65,17 @@ public class FavoriteList implements Serializable, Comparator<FavoriteList> {
 	 * Method for getting a Favorite List.
 	 * @return Method returns a Favorite List.
 	 */
-	/*public List<FavoriteItem> getFavList(){
+	public List<FavoriteItem> getFavList(){
 		return favList;
-	}*/
+	}
 	
 	/**
 	 * Method for setting a Favorite List.
 	 * @param fList Favorite List is set to incoming fList parameter.
 	 */
-	/*public void setFavList(List<FavoriteItem> fList){
+	public void setFavList(List<FavoriteItem> fList){
 		favList = fList;
-	}*/
+	}
 	
     /**
      * Method for getting the user associated with the favorite list, for use with Hibernate.
@@ -131,26 +127,25 @@ public class FavoriteList implements Serializable, Comparator<FavoriteList> {
 	 * if Object is not an instance of the FavoriteList class,
 	 * or true if all field values are equal.
 	 */
-	/*@Override public boolean equals(Object obj){
+	@Override public boolean equals(Object obj){
 		if (obj instanceof FavoriteList) {
 			FavoriteList list = (FavoriteList)obj;
 			if (!nameFavList.equals(list.getNameFavList())) return false;
 			if (!favListType.equals(list.getFavListType())) return false;
 			return true;
 		}
-        logger.debug("FavoriteList::equals - Incoming object is not an instance of the FavoriteList class.");
 		return false;
-	}*/
+	}
 	
 	/**
 	 * Method for obtaining the hashcode of FavoriteList object field values.
 	 * Overrides java.lang.Object.hashCode() method.
 	 * @return Method returns a hashcode value based upon FavoriteList field values.
 	 */
-	/*@Override public int hashCode(){
+	@Override public int hashCode(){
 		int fieldHashCode = nameFavList.hashCode() + favListType.hashCode() + favList.hashCode();
 		return fieldHashCode;
-	}*/
+	}
 	
 	/**
 	 * Method for displaying values of the FavoriteList fields.
@@ -171,8 +166,8 @@ public class FavoriteList implements Serializable, Comparator<FavoriteList> {
 	 * or returns true if validated field values are set to valid values.
 	 */
 	public boolean validate(){
-		if (nameFavList.isEmpty()) return false;
-		if (favListType.isEmpty()) return false;
+		if (nameFavList == null || nameFavList.isEmpty()) return false;
+		if (favListType == null || favListType.isEmpty()) return false;
 		return true;
 	}
 }

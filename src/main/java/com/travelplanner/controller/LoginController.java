@@ -22,6 +22,26 @@ import com.travelplanner.model.domain.UserInformation;
 public class LoginController extends HttpServlet {
 
     /**
+     * Method for handling HTTP Get Requests for User Login.
+     * @param request Incoming HttpServletRequest object from web container.
+     * @param response Incoming HttpServletResponse object from web container.
+     * @throws ServletException
+     * @throws IOException
+     */
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        HttpSession session = request.getSession();
+        if (session.getAttribute("user") != null) {
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/welcome.jsp");
+            dispatcher.forward(request, response);
+        }
+        else {
+            response.sendRedirect("login.jsp");
+        }
+    }
+    
+    /**
      * Method for handling HTTP Post Requests for User Login.
      * @param request Incoming HttpServletRequest object from web container.
      * @param response Incoming HttpServletResponse object from web container.
@@ -37,17 +57,34 @@ public class LoginController extends HttpServlet {
                
         RequestDispatcher dispatcher = null;
         LoginManager loginManager = new LoginManager();
-        UserInformation userInformation = loginManager.authenticate(user);
+        
+        if (user.getUsername() != null && !user.getUsername().isEmpty() ) {
+            user = loginManager.authenticate(user);
+        }
+        else {
+            user = null;
+        }
+        
+        UserInformation userInformation = null;
+        
+        if (user != null) {
+            userInformation = user.getUserInformation();
+        }
         
         if (userInformation != null) {
             HttpSession session = request.getSession();
+            session.setAttribute("user", user);
             session.setAttribute("userInformation", userInformation);
-            dispatcher = getServletContext().getRequestDispatcher("/home");
+            dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/welcome.jsp");
         }
         else {
-            String[] errorMessages = { "Error: Login failed!", "User credentials are not valid." };
+            String[] errorMessages = { "Error!",
+                                       "Login Failed.",
+                                       "User credentials are not valid." };
+            
             request.setAttribute("error", errorMessages);
-            dispatcher = getServletContext().getRequestDispatcher("/error");
+            request.setAttribute("action", "welcome");
+            dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp");
         }
 
         dispatcher.forward(request, response);
