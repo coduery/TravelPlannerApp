@@ -50,11 +50,12 @@ public class Main {
 
         // Database connection parameters
         PGConnectionPoolDataSource dataSource = new PGConnectionPoolDataSource();
-        dataSource.setServerName("localhost");
+        dataSource.setServerName("ec2-107-21-120-102.compute-1.amazonaws.com");
         dataSource.setPortNumber(5432);
-        dataSource.setDatabaseName("travel_planner");
-        dataSource.setUser("postgres");
-        dataSource.setPassword("J29yUr87");
+        dataSource.setDatabaseName("dfhlo3ueqaut0m");
+        dataSource.setUser("svdiufdculjrdb");
+        dataSource.setPassword("2XiPTyo_CX0gVEYeBBoWPb_SCB");
+        dataSource.setSsl(true);
         initialContext.bind("java:comp/env/jdbc/postgresqlconnector", dataSource);
         
         org.apache.catalina.Context context = tomcat.addWebapp("", new File(webappDirLocation).getAbsolutePath());
