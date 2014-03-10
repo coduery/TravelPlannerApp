@@ -1,0 +1,7 @@
+# Ignore doc and sql folder
+doc/
+sql/
+
+# Ignore other unneeded files.
+*~
+.project
